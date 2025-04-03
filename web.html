@@ -8,8 +8,8 @@
     <title>Web Design Services | Your Portfolio</title>
     <style>
         :root {
-            --primary-color: #3a86ff;
-            --secondary-color: #8338ec;
+            --primary-color: #a26226;
+            --secondary-color: #1d7685;
             --text-color: #333;
             --light-bg: #f8f9fa;
             --dark-bg: #212529;
@@ -25,7 +25,11 @@
         body {
             font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
             line-height: 1.6;
-            color: var(--text-color);
+
+            font-family: 'Helvetica Neue', Arial, sans-serif;
+            background: #0f0f0f;
+            color: #f0f0f0;
+            /* overflow-x: hidden; */
         }
         
         .container {
@@ -33,6 +37,138 @@
             margin: 0 auto;
             padding: 0 20px;
         }
+
+        .cursor {
+      position: fixed;
+      width: 20px;
+      height: 20px;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.5);
+      mix-blend-mode: difference;
+      pointer-events: none;
+      transform: translate(-50%, -50%);
+      transition: transform 0.1s ease, width 0.3s ease, height 0.3s ease;
+      z-index: 9999;
+    }
+        .nav {
+      position: flex;
+      top: 0;
+      width: 100%;
+      padding: 2rem 3rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      z-index: 100;
+      padding: 1.5rem 0;
+    }
+
+
+    .nav a {
+    text-decoration: none; /* Removes underline for all states */
+        }
+
+        .nav a:visited,
+        .nav a:focus {
+    text-decoration: none; /* Ensures no underline after clicking */
+        }
+
+
+    .menu-container {
+      position: relative;
+    }
+    
+    .menu-toggle {
+      width: 40px;
+      height: 20px;
+      position: relative;
+      cursor: pointer;
+      z-index: 101;
+      mix-blend-mode: difference;
+    }
+    
+    .menu-toggle span {
+      display: block;
+      position: absolute;
+      height: 2px;
+      width: 100%;
+      background: #f0f0f0;
+      transition: 0.3s ease;
+    }
+    
+    .menu-toggle span:nth-child(1) { top: 0; }
+    .menu-toggle span:nth-child(2) { top: 9px; }
+    .menu-toggle span:nth-child(3) { top: 18px; }
+    
+    .menu-toggle.active span:nth-child(1) {
+      transform: rotate(45deg);
+      top: 9px;
+    }
+    
+    .menu-toggle.active span:nth-child(2) {
+      opacity: 0;
+    }
+    
+    .menu-toggle.active span:nth-child(3) {
+      transform: rotate(-45deg);
+      top: 9px;
+    }
+    
+    .dropdown-menu {
+      position: absolute;
+      top: -20px;
+      right: -20px;
+      background: rgba(25, 25, 25, 0.95);
+      backdrop-filter: blur(10px);
+      padding: 6rem 3rem 3rem;
+      border-radius: 15px;
+      transition: transform 0.5s cubic-bezier(0.77, 0, 0.175, 1), opacity 0.5s ease;
+      transform: translateY(-20px);
+      opacity: 0;
+      pointer-events: none;
+      z-index: 100;
+      white-space: nowrap;
+    }
+    
+    .dropdown-menu.active {
+      transform: translateY(0);
+      opacity: 1;
+      pointer-events: auto;
+    }
+    
+    .menu-links {
+      display: flex;
+      flex-direction: column;
+      gap: 1.5rem;
+    }
+    
+    .menu-link {
+      color: #f0f0f0;
+      text-decoration: none;
+      font-size: 1.3rem;
+      font-weight: 600;
+      position: relative;
+      padding: 0.5rem 0;
+      transition: color 0.3s ease;
+    }
+    
+    .menu-link::after {
+      content: '';
+      position: absolute;
+      width: 0;
+      height: 2px;
+      bottom: 0;
+      left: 0;
+      background-color: #FF0080;
+      transition: width 0.4s ease;
+    }
+    
+    .menu-link:hover {
+      color: #FF0080;
+    }
+    
+    .menu-link:hover::after {
+      width: 100%;
+    }
         
         .navbar {
             display: flex;
@@ -46,7 +182,7 @@
             font-size: 1.5rem;
             font-weight: 700;
             text-decoration: none;
-            color: var(--text-color);
+            color: white;
         }
         
         .nav-links {
@@ -96,7 +232,7 @@
         .btn {
             display: inline-block;
             background-color: white;
-            color: var(--primary-color);
+            color: #0f0f0f;
             padding: 0.75rem 1.5rem;
             border-radius: 50px;
             text-decoration: none;
@@ -130,7 +266,7 @@
         }
         
         .service-card {
-            background-color: white;
+            background-color: #262626;
             border-radius: 10px;
             overflow: hidden;
             box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
@@ -144,7 +280,7 @@
         
         .service-img {
             height: 200px;
-            background-color: #f8f9fac1;
+            background-color: rgb(248, 249, 250);
             display: flex;
             align-items: center;
             justify-content: center;
@@ -245,7 +381,7 @@
         
         .cta {
             text-align: center;
-            background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
+            background: #7d4d1f;
             padding: 5rem 2rem;
             border-radius: 10px;
             color: white;
@@ -265,6 +401,7 @@
         .footer {
             padding: 3rem 0;
             text-align: center;
+            color: var(--text-color);
         }
         
         .footer-links {
@@ -306,15 +443,25 @@
 </head>
 <body>
     <div class="container">
-        <nav class="navbar">
-            <a href="index.html" class="logo">TAC Media</a>
-            <ul class="nav-links">
-                <li><a href="index.html">Home</a></li>
-                <li><a href="dev.html">Development</a></li>
-                <li><a href="ecom.html">E-commerce</a></li>
-                <li><a href="https://instagram.com/tacmedia.digital">Contact</a></li>
-            </ul>
-        </nav>
+
+        <div class="cursor"></div>
+        <nav class="nav">
+            <a href="index.html"><div class="logo">TAC Media</div></a>
+            <div class="menu-container">
+              <div class="menu-toggle">
+                <span></span>
+                <span></span>
+                <span></span>
+              </div>
+              <div class="dropdown-menu">
+                <div class="menu-links">
+                  <a href="index.html" class="menu-link">Home</a>
+                  <a href="dev.html" class="menu-link">Development</a>
+                  <a href="ecom.html" class="menu-link">E-Commerce</a>
+                </div>
+              </div>
+            </div>
+          </nav>
         
         <section class="hero">
             <div class="hero-content">
@@ -399,31 +546,31 @@
                             <path d="M270 130 V470 M320 130 V470 M370 130 V470 M420 130 V470 M470 130 V470 M520 130 V470" stroke="#fa5252" stroke-width="0.5" stroke-dasharray="2" opacity="0.3"/>
                             
                             <!-- Annotations -->
-                            <line x1="210" y1="165" x2="270" y2="165" stroke="#fa5252" stroke-width="1.5"/>
-                            <rect x="140" y="150" width="70" height="30" rx="15" fill="#fa5252"/>
+                            <line x1="210" y1="165" x2="270" y2="165" stroke="#bf732d" stroke-width="1.5"/>
+                            <rect x="140" y="150" width="70" height="30" rx="15" fill="#bf732d"/>
                             <text x="175" y="170" font-family="Arial" font-size="12" text-anchor="middle" fill="white">Header</text>
                             
-                            <line x1="580" y1="225" x2="530" y2="225" stroke="#fa5252" stroke-width="1.5"/>
-                            <rect x="580" y="210" width="80" height="30" rx="15" fill="#fa5252"/>
+                            <line x1="580" y1="225" x2="530" y2="225" stroke="#bf732d" stroke-width="1.5"/>
+                            <rect x="580" y="210" width="80" height="30" rx="15" fill="#bf732d"/>
                             <text x="620" y="230" font-family="Arial" font-size="12" text-anchor="middle" fill="white">Hero Area</text>
                             
-                            <line x1="160" y1="315" x2="280" y2="315" stroke="#fa5252" stroke-width="1.5"/>
-                            <rect x="90" y="300" width="70" height="30" rx="15" fill="#fa5252"/>
+                            <line x1="160" y1="315" x2="280" y2="315" stroke="#bf732d" stroke-width="1.5"/>
+                            <rect x="90" y="300" width="70" height="30" rx="15" fill="#bf732d"/>
                             <text x="125" y="320" font-family="Arial" font-size="12" text-anchor="middle" fill="white">Nav</text>
                             
-                            <line x1="600" y1="350" x2="530" y2="350" stroke="#fa5252" stroke-width="1.5"/>
-                            <rect x="600" y="335" width="70" height="30" rx="15" fill="#fa5252"/>
+                            <line x1="600" y1="350" x2="530" y2="350" stroke="#bf732d" stroke-width="1.5"/>
+                            <rect x="600" y="335" width="70" height="30" rx="15" fill="#bf732d"/>
                             <text x="635" y="355" font-family="Arial" font-size="12" text-anchor="middle" fill="white">Cards</text>
                             
                             <!-- UI/UX Design Tools -->
-                            <circle cx="525" cy="455" r="25" fill="#ffffff" stroke="#fa5252" stroke-width="2"/>
-                            <path d="M510 455 L540 455 M525 440 L525 470" stroke="#fa5252" stroke-width="2"/>
+                            <circle cx="525" cy="455" r="25" fill="#ffffff" stroke="#bf732d" stroke-width="2"/>
+                            <path d="M510 455 L540 455 M525 440 L525 470" stroke="#bf732d" stroke-width="2"/>
                             
                             <rect x="400" y="480" width="100" height="15" rx="7.5" fill="#228be6"/>
                             <text x="450" y="492" font-family="Arial" font-size="10" text-anchor="middle" fill="white">CALL TO ACTION</text>
                             
                             <!-- Cursor and Interaction -->
-                            <path d="M395 260 L405 270 L395 280 L385 270 Z" fill="#fa5252"/>
+                            <path d="M395 260 L405 270 L395 280 L385 270 Z" fill="#bf732d"/>
                             
                             <!-- Title -->
                             <text x="400" y="80" font-family="Arial" font-size="24" font-weight="bold" text-anchor="middle" fill="#212529"></text>
@@ -471,8 +618,8 @@
                             <circle cx="120" cy="370" r="6" fill="#dee2e6"/>
                             
                             <!-- Connecting lines between devices -->
-                            <path d="M160 300 L240 300" stroke="#20c997" stroke-width="2" stroke-dasharray="5,3"/>
-                            <path d="M390 300 L420 250" stroke="#20c997" stroke-width="2" stroke-dasharray="5,3"/>
+                            <path d="M160 300 L240 300" stroke="#bf732d" stroke-width="2" stroke-dasharray="5,3"/>
+                            <path d="M390 300 L420 250" stroke="#bf732d" stroke-width="2" stroke-dasharray="5,3"/>
                             
                             <!-- Responsive content representation -->
                             <!-- Desktop content -->
@@ -523,13 +670,13 @@
                             <rect x="100" y="315" width="30" height="5" rx="1" fill="#dee2e6"/>
                             
                             <!-- Responsive design indicators -->
-                            <rect x="85" y="200" width="50" height="20" rx="10" fill="#20c997"/>
+                            <rect x="85" y="200" width="50" height="20" rx="10" fill="#bf732d"/>
                             <text x="110" y="214" font-family="Arial" font-size="10" text-anchor="middle" fill="white">Mobile</text>
                             
-                            <rect x="250" y="170" width="50" height="20" rx="10" fill="#20c997"/>
+                            <rect x="250" y="170" width="50" height="20" rx="10" fill="#bf732d"/>
                             <text x="275" y="184" font-family="Arial" font-size="10" text-anchor="middle" fill="white">Tablet</text>
                             
-                            <rect x="430" y="120" width="60" height="20" rx="10" fill="#20c997"/>
+                            <rect x="430" y="120" width="60" height="20" rx="10" fill="#bf732d"/>
                             <text x="460" y="134" font-family="Arial" font-size="10" text-anchor="middle" fill="white">Desktop</text>
                             
                             <!-- Flexible layout arrows -->
@@ -579,13 +726,13 @@
                             <rect x="50" y="50" width="80" height="80" rx="10" ry="10" fill="#3366CC"/>
                             <rect x="50" y="150" width="80" height="80" rx="10" ry="10" fill="#DC3545"/>
                             <rect x="50" y="250" width="80" height="80" rx="10" ry="10" fill="#28A745"/>
-                            <rect x="50" y="350" width="80" height="80" rx="10" ry="10" fill="#FFC107"/>
+                            <rect x="50" y="350" width="80" height="80" rx="10" ry="10" fill="#bf732d"/>
                             <rect x="50" y="450" width="80" height="80" rx="10" ry="10" fill="#6F42C1"/>
                             
                             <!-- Logo Design Elements -->
-                            <circle cx="250" cy="170" r="70" fill="#ffffff" stroke="#3366CC" stroke-width="8"/>
-                            <path d="M220,170 L280,170" stroke="#3366CC" stroke-width="8" stroke-linecap="round"/>
-                            <path d="M250,140 L250,200" stroke="#3366CC" stroke-width="8" stroke-linecap="round"/>
+                            <circle cx="250" cy="170" r="70" fill="#ffffff" stroke="#bf732d" stroke-width="8"/>
+                            <path d="M220,170 L280,170" stroke="#bf732d" stroke-width="8" stroke-linecap="round"/>
+                            <path d="M250,140 L250,200" stroke="#bf732d" stroke-width="8" stroke-linecap="round"/>
                             
                             <!-- Typography Sample -->
                             <rect x="380" y="100" width="350" height="50" rx="5" ry="5" fill="#e6e6e6"/>
@@ -703,5 +850,59 @@
             <p>&copy; (Copyright pending) TAC Media.</p>
         </footer>
     </div>
+
+    <script>
+        // Custom cursor
+        const cursor = document.querySelector('.cursor');
+        
+        document.addEventListener('mousemove', (e) => {
+          cursor.style.left = e.clientX + 'px';
+          cursor.style.top = e.clientY + 'px';
+        });
+        
+        document.addEventListener('mousedown', () => {
+          cursor.style.width = '15px';
+          cursor.style.height = '15px';
+        });
+        
+        document.addEventListener('mouseup', () => {
+          cursor.style.width = '20px';
+          cursor.style.height = '20px';
+        });
+        
+        // Scroll animations
+        const observerOptions = {
+          threshold: 0.1
+        };
+        
+        const observer = new IntersectionObserver((entries) => {
+          entries.forEach(entry => {
+            if (entry.isIntersecting) {
+              entry.target.classList.add('visible');
+            }
+          });
+        }, observerOptions);
+        
+        const animatedElements = document.querySelectorAll('.project-grid, .section-title, .cta-section, footer');
+        animatedElements.forEach(el => observer.observe(el));
+        
+        // Menu toggle functionality
+        const menuToggle = document.querySelector('.menu-toggle');
+        const dropdownMenu = document.querySelector('.dropdown-menu');
+        
+        menuToggle.addEventListener('click', () => {
+          menuToggle.classList.toggle('active');
+          dropdownMenu.classList.toggle('active');
+        });
+        
+        // Close menu when clicking menu items
+        const menuLinks = document.querySelectorAll('.menu-link');
+        menuLinks.forEach(link => {
+          link.addEventListener('click', () => {
+            menuToggle.classList.remove('active');
+            dropdownMenu.classList.remove('active');
+          });
+        });
+      </script>
 </body>
 </html>

@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TAC Media - Web Design Solutions</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;700&display=swap" rel="stylesheet">
+
+
+
+</head>
+<body>
+    <nav class="navbar">
+        <div class="brand">TAC Media</div>
+        
+        <div class="hamburger" onclick="toggleMenu()">
+            <div class="bar"></div>
+            <div class="bar"></div>
+            <div class="bar"></div>
+        </div>
+        
+        <ul class="nav-links" id="navLinks">
+            <li><a href="./web.html">Web Design</a></li>
+            <li><a href="dev.html">Development</a></li>
+            <li><a href="ecom.html">E-commerce</a></li>
+            <li><a href="https://instagram.com/tacmedia.digital">Contact</a></li>
+        </ul>
+    </nav>
+    <header>
+        <div class="header-bg"></div> 
+        <div class="headerover">
+        <div class="header-content">
+            
+            <h1>TAC Media</h1>
+            <p>Building Digital Excellence</p>
+        </div>
+    </div>
+    </header>
+
+    <section class="services">
+        <h2>Our Services</h2>
+        
+        <div class="services-grid">
+            <a href="web.html">
+            <div class="service-card">
+                <div class="logg">
+                <svg class="service-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
+                    <!-- Background circle -->
+                    <circle cx="32" cy="32" r="30" fill="#4A90E2" />
+                    
+                    <!-- Browser window frame -->
+                    <rect x="14" y="16" width="36" height="28" rx="2" fill="#FFFFFF" />
+                    
+                    <!-- Browser URL bar -->
+                    <rect x="16" y="18" width="32" height="4" rx="1" fill="#E0E0E0" />
+                    
+                    <!-- Browser content area -->
+                    <rect x="16" y="24" width="32" height="18" rx="1" fill="#F5F5F5" />
+                    
+                    <!-- Layout elements -->
+                    <rect x="18" y="26" width="18" height="2" rx="1" fill="#4A90E2" />
+                    <rect x="18" y="30" width="28" height="1" rx="0.5" fill="#BBBBBB" />
+                    <rect x="18" y="33" width="28" height="1" rx="0.5" fill="#BBBBBB" />
+                    <rect x="18" y="36" width="20" height="1" rx="0.5" fill="#BBBBBB" />
+                    
+                    <!-- Design element (pencil/brush) -->
+                    <path d="M42 36 L46 32 L48 34 L44 38 Z" fill="#FF9500" />
+                    <rect x="41.5" y="36" width="3" height="2" rx="0.5" transform="rotate(-45 41.5 36)" fill="#E67500" />
+                  </svg>
+                </div>
+                <!-- <img src="https://via.placeholder.com/300x200" alt="Web Design"> -->
+                 <div class="pwrap">
+                <h3>Custom Web Design</h3>
+                <p>Tailored websites that reflect your brand's unique identity.</p>
+            </div>
+            </div>
+        </a>
+        <a href="dev.html">
+            <div class="service-card">
+                <div class="webdesign-logo logg">
+                    <svg class="weblogo" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
+                        <!-- Background circle -->
+                        <circle cx="32" cy="32" r="30" fill="#5C6BC0" />
+                        
+                        <!-- Browser window frame -->
+                        <rect x="14" y="16" width="36" height="28" rx="2" fill="#FFFFFF" />
+                        
+                        <!-- Browser URL bar -->
+                        <rect x="16" y="18" width="32" height="4" rx="1" fill="#E0E0E0" />
+                        
+                        <!-- Code editor area -->
+                        <rect x="16" y="24" width="32" height="18" rx="1" fill="#282C34" />
+                        
+                        <!-- Code elements (representing HTML, CSS, JS) -->
+                        <path d="M22 28 L19 32 L22 36" stroke="#61DAFB" stroke-width="1.5" fill="none" />
+                        <path d="M28 28 L31 32 L28 36" stroke="#61DAFB" stroke-width="1.5" fill="none" />
+                        
+                        <!-- Code lines -->
+                        <rect x="18" y="30" width="28" height="1" rx="0.5" fill="#ABB2BF" opacity="0.5" />
+                        <rect x="18" y="33" width="28" height="1" rx="0.5" fill="#ABB2BF" opacity="0.5" />
+                        <rect x="18" y="36" width="20" height="1" rx="0.5" fill="#ABB2BF" opacity="0.5" />
+                        
+                        <!-- Terminal cursor blinking -->
+                        <rect x="38" y="36" width="2" height="2" fill="#98C379" />
+                        
+                        <!-- Brackets -->
+                        <path d="M34 27 L36 29 L34 31" stroke="#E06C75" stroke-width="1.5" fill="none" />
+                      </svg>
+                    
+                </div>
+            
+                <div class="pwrap">
+                <h3>Web Development</h3>
+                <p>Responsive and functional websites built with modern technologies.</p>
+                </div>
+            </div>
+        </a>
+        <a href="ecom.html">
+            <div class="service-card">
+                <!-- Ecommerce Logo -->
+<div class="ecommerce-logo logg">
+    <svg class="ecomlogo" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
+        <!-- Background circle -->
+        <circle cx="32" cy="32" r="30" fill="#4CAF50" />
+        
+        <!-- Shopping bag -->
+        <path d="M20 24 C20 20 26 20 26 20 L38 20 C38 20 44 20 44 24 L44 42 L20 42 Z" fill="#FFFFFF" />
+        <path d="M26 20 C26 20 26 16 32 16 C38 16 38 20 38 20" stroke="#FFFFFF" stroke-width="2" fill="none" />
+        
+        <!-- Shopping cart -->
+        <circle cx="28" cy="45" r="3" fill="#FFD54F" stroke="#4CAF50" stroke-width="1" />
+        <circle cx="38" cy="45" r="3" fill="#FFD54F" stroke="#4CAF50" stroke-width="1" />
+        
+        <!-- Dollar sign -->
+        <circle cx="32" cy="30" r="6" fill="#FFD54F" />
+        <path d="M32 26 V34" stroke="#4CAF50" stroke-width="2" stroke-linecap="round" />
+        <path d="M30 28 L34 28" stroke="#4CAF50" stroke-width="2" stroke-linecap="round" />
+        <path d="M30 32 L34 32" stroke="#4CAF50" stroke-width="2" stroke-linecap="round" />
+        
+        <!-- Horizontal lines (product listings) -->
+        <rect x="24" y="36" width="16" height="2" rx="1" fill="#E0E0E0" />
+        <rect x="24" y="39" width="16" height="2" rx="1" fill="#E0E0E0" />
+      </svg>
+    </div>
+       <div class="pwrap">
+                <h3>E-Commerce Solutions</h3>
+                <p>Online stores that convert visitors into customers.</p>
+                </div>
+            </div>
+        </a>
+        </div>
+    
+    </section>
+
+    <section class="portfolio">
+        <h2>Transform Your Vision To Reality</h2>
+        <div class="portfolio-grid">
+            <img src="./images/sankof.jpeg" alt="Project 1">
+            <img src="./images/home.png" alt="Project 2">
+            <img src="./images/white.png" alt="Project 3">
+        </div>
+    </section>
+
+    <section class="contact">
+        <h2>Let's Work Together</h2>
+        <p>Ready to take your digital presence to the next level?</p>
+        <a href="https://instagram.com/tacmedia.digital" class="cta-button">Get in Touch</a>
+    </section>
+
+    <footer>
+        <p>&copy; (Copyright pending) TAC Media.</p>
+    </footer>
+
+
+
+    <script src="scripts.js">
+    function toggleMenu() {
+        const navLinks = document.getElementById('navLinks');
+        const hamburger = document.querySelector('.hamburger');
+        
+        navLinks.classList.toggle('active');
+        hamburger.classList.toggle('active');
+    }
+    
+    // Close menu when clicking outside on mobile
+    document.addEventListener('click', function(event) {
+        const nav = document.querySelector('.navbar');
+        const hamburger = document.querySelector('.hamburger');
+        const navLinks = document.getElementById('navLinks');
+        
+        if (window.innerWidth <= 768 && 
+            !nav.contains(event.target) && 
+            navLinks.classList.contains('active')) {
+            navLinks.classList.remove('active');
+            hamburger.classList.remove('active');
+        }
+    });
+    </script>
+</body>
+</html>

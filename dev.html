@@ -8,10 +8,10 @@
     <style>
         /* Base styles */
         :root {
-            --primary-color: #3a86ff;
-            --secondary-color: #8338ec;
+            --primary-color: #2b65c1;
+            --secondary-color: #5d27a9;
             --accent-color: #47b8e0;
-            --text-color: #333;
+            --text-color: white;
             --light-bg: #f5f7fa;
             --white: #ffffff;
         }
@@ -22,7 +22,8 @@
             color: var(--text-color);
             margin: 0;
             padding: 0;
-            background-color: var(--light-bg);
+            background: #0f0f0f;
+            color: #f0f0f0;
         }
         
         .container {
@@ -40,23 +41,150 @@
             z-index: 100;
         }
         
-        nav {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
+        .cursor {
+      position: fixed;
+      width: 20px;
+      height: 20px;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.5);
+      mix-blend-mode: difference;
+      pointer-events: none;
+      transform: translate(-50%, -50%);
+      transition: transform 0.1s ease, width 0.3s ease, height 0.3s ease;
+      z-index: 9999;
+    }
+
+    .menu-container {
+      position: relative;
+    }
+    
+    .menu-toggle {
+      width: 40px;
+      height: 20px;
+      position: relative;
+      cursor: pointer;
+      z-index: 101;
+      mix-blend-mode: difference;
+    }
+    
+    .menu-toggle span {
+      display: block;
+      position: absolute;
+      height: 2px;
+      width: 100%;
+      background: #f0f0f0;
+      transition: 0.3s ease;
+    }
+    
+    .menu-toggle span:nth-child(1) { top: 0; }
+    .menu-toggle span:nth-child(2) { top: 9px; }
+    .menu-toggle span:nth-child(3) { top: 18px; }
+    
+    .menu-toggle.active span:nth-child(1) {
+      transform: rotate(45deg);
+      top: 9px;
+    }
+    
+    .menu-toggle.active span:nth-child(2) {
+      opacity: 0;
+    }
+    
+    .menu-toggle.active span:nth-child(3) {
+      transform: rotate(-45deg);
+      top: 9px;
+    }
+    
+    .dropdown-menu {
+      position: absolute;
+      top: -20px;
+      right: -20px;
+      background: rgba(25, 25, 25, 0.95);
+      backdrop-filter: blur(10px);
+      padding: 6rem 3rem 3rem;
+      border-radius: 15px;
+      transition: transform 0.5s cubic-bezier(0.77, 0, 0.175, 1), opacity 0.5s ease;
+      transform: translateY(-20px);
+      opacity: 0;
+      pointer-events: none;
+      z-index: 100;
+      white-space: nowrap;
+    }
+    
+    .dropdown-menu.active {
+      transform: translateY(0);
+      opacity: 1;
+      pointer-events: auto;
+    }
+    
+    .menu-links {
+      display: flex;
+      flex-direction: column;
+      gap: 1.5rem;
+    }
+    
+    .menu-link {
+      color: #f0f0f0;
+      text-decoration: none;
+      font-size: 1.3rem;
+      font-weight: 600;
+      position: relative;
+      padding: 0.5rem 0;
+      transition: color 0.3s ease;
+    }
+    
+    .menu-link::after {
+      content: '';
+      position: absolute;
+      width: 0;
+      height: 2px;
+      bottom: 0;
+      left: 0;
+      background-color: #FF0080;
+      transition: width 0.4s ease;
+    }
+    
+    .menu-link:hover {
+      color: #FF0080;
+    }
+    
+    .menu-link:hover::after {
+      width: 100%;
+    }
+    
+        .nav {
+      position: flex;
+      top: 0;
+      width: 100%;
+      padding: 2rem 3rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      z-index: 100;
+      padding: 1.5rem 0;
+    }
+
+    .nav a {
+    text-decoration: none; /* Removes underline for all states */
         }
+
+        .nav a:visited,
+        .nav a:focus {
+    text-decoration: none; /* Ensures no underline after clicking */
+        }
+
         
         .logo {
             font-family: "Outfit", sans-serif;
             font-weight: 700;
             font-size: 1.5rem;
-            color: var(--primary-color);
+            color: white;
             text-decoration: none;
         }
         
         .nav-links {
             display: flex;
             gap: 30px;
+            list-style: none;
         }
         
         .nav-links a {
@@ -75,6 +203,8 @@
             color: var(--white);
             padding: 80px 0;
             text-align: center;
+            border-radius: 10px;
+            margin: 2rem 0;
         }
         
         .hero h1 {
@@ -90,18 +220,18 @@
         
         .btn {
             display: inline-block;
-            background-color: var(--accent-color);
-            color: var(--white);
-            padding: 12px 30px;
-            border-radius: 4px;
+            background-color: white;
+            color: #0f0f0f;
+            padding: 0.75rem 1.5rem;
+            border-radius: 50px;
             text-decoration: none;
             font-weight: 600;
             transition: all 0.3s ease;
         }
         
         .btn:hover {
-            background-color: #3a98b9;
-            transform: translateY(-2px);
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
         }
         
         section {
@@ -121,7 +251,7 @@
         }
         
         .service-card {
-            background-color: var(--white);
+            background-color: #262626;
             border-radius: 8px;
             overflow: hidden;
             box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
@@ -143,7 +273,10 @@
         
         .tech-stack {
             padding: 60px 0;
-            background-color: var(--white);
+            list-style: none;
+            background-color: #555555;
+            border-radius: 10px;
+            /* margin-bottom: 60px; */
         }
         
         .tech-logos {
@@ -227,8 +360,8 @@
         }
         
         footer {
-            background-color: #2d3436;
-            color: var(--white);
+           
+            color: #333;
             padding: 50px 0;
             text-align: center;
         }
@@ -238,10 +371,10 @@
             justify-content: center;
             gap: 20px;
             margin: 20px 0;
+            list-style: none;
         }
         
         .footer-links a {
-            color: var(--white);
             text-decoration: none;
             transition: color 0.3s ease;
         }
@@ -267,19 +400,24 @@
     </style>
 </head>
 <body>
-    <header>
-        <div class="container">
-            <nav>
-                <a href="index.html" class="logo">TAC Media</a>
-                <div class="nav-links">
-                    <a href="index.html">Home</a>
-                    <a href="web.html">Web Design</a>
-                    <a href="ecom.html">E-commerce</a>
-                    <a href="https://instagram.com/tacmedia.digital">Contact</a>
+    <div class="container">
+        <nav class="nav">
+            <a href="index.html"><div class="logo">TAC Media</div></a>
+            <div class="menu-container">
+              <div class="menu-toggle">
+                <span></span>
+                <span></span>
+                <span></span>
+              </div>
+              <div class="dropdown-menu">
+                <div class="menu-links">
+                  <a href="index.html" class="menu-link">Home</a>
+                  <a href="web.html" class="menu-link">Web Design</a>
+                  <a href="ecom.html" class="menu-link">E-Commerce</a>
                 </div>
-            </nav>
-        </div>
-    </header>
+              </div>
+            </div>
+          </nav> 
     
     <div class="hero">
         <div class="container">
@@ -415,5 +553,60 @@
                         </footer>
 
                     </div>
+                </div>
+
+                <script>
+                    // Custom cursor
+                    const cursor = document.querySelector('.cursor');
+                    
+                    document.addEventListener('mousemove', (e) => {
+                      cursor.style.left = e.clientX + 'px';
+                      cursor.style.top = e.clientY + 'px';
+                    });
+                    
+                    document.addEventListener('mousedown', () => {
+                      cursor.style.width = '15px';
+                      cursor.style.height = '15px';
+                    });
+                    
+                    document.addEventListener('mouseup', () => {
+                      cursor.style.width = '20px';
+                      cursor.style.height = '20px';
+                    });
+                    
+                    // Scroll animations
+                    const observerOptions = {
+                      threshold: 0.1
+                    };
+                    
+                    const observer = new IntersectionObserver((entries) => {
+                      entries.forEach(entry => {
+                        if (entry.isIntersecting) {
+                          entry.target.classList.add('visible');
+                        }
+                      });
+                    }, observerOptions);
+                    
+                    const animatedElements = document.querySelectorAll('.project-grid, .section-title, .cta-section, footer');
+                    animatedElements.forEach(el => observer.observe(el));
+                    
+                    // Menu toggle functionality
+                    const menuToggle = document.querySelector('.menu-toggle');
+                    const dropdownMenu = document.querySelector('.dropdown-menu');
+                    
+                    menuToggle.addEventListener('click', () => {
+                      menuToggle.classList.toggle('active');
+                      dropdownMenu.classList.toggle('active');
+                    });
+                    
+                    // Close menu when clicking menu items
+                    const menuLinks = document.querySelectorAll('.menu-link');
+                    menuLinks.forEach(link => {
+                      link.addEventListener('click', () => {
+                        menuToggle.classList.remove('active');
+                        dropdownMenu.classList.remove('active');
+                      });
+                    });
+                  </script>
                 </body>
                 </html>
